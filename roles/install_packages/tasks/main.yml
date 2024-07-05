@@ -1,0 +1,3 @@
+- name: install Pop OS! apt packages
+  import_tasks: pop_os.yml
+  when: "ansible_facts['distribution'] == 'Pop!_OS'"

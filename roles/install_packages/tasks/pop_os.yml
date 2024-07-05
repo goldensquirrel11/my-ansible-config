@@ -1,0 +1,23 @@
+- name: Install Pop OS! packages
+  ansible.builtin.package:
+    state: present
+    name:
+      - ark
+      - gimp
+      - gnome-shell-extension-manager
+      - htop
+      - inkscape
+      - kdenlive
+      - keepassxc
+      - lutris
+      - nala
+      - nmap
+      - nodejs
+      - nvtop
+      - okular
+      - pip
+      - steam
+      - timeshift
+      - tmux
+      - virt-manager
+      - xournalpp
