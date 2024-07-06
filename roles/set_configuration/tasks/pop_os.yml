@@ -77,3 +77,22 @@
 
 - name: Disable ibus emoji picker
   ansible.builtin.command: gsettings set org.freedesktop.ibus.panel.emoji hotkey "[]"
+
+
+##########################################
+#    Disabling middle-click to paste     #
+#                on Xorg                 #
+##########################################
+
+# The following executable was compiled from the code available at
+# https://github.com/milaq/XMousePasteBlock
+
+- name: Copy xmousepasteblock executable to remote bin path
+  ansible.builtin.copy:
+    src: "{{ xmousepasteblock_executable }}"
+    dest: "/usr/bin/"
+
+- name: Copy xmousepasteblock autostart entry
+  ansible.builtin.copy:
+    src: "{{ xmousepasteblock_autostart_entry }}"
+    dest: "{{ ansible_user_dir }}/.config/autostart/"

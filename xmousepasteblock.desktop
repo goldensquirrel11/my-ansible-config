@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=xmousepasteblock
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=XMousePasteBlock
+Name=XMousePasteBlock
+Comment[en_US]=Userspace tool to disable middle mouse button paste in Xorg
+Comment=Userspace tool to disable middle mouse button paste in Xorg
