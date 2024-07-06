@@ -35,7 +35,7 @@
 
 - name: Set keybinding switch windows
   ansible.builtin.dconf:
-    key: "/org/gnome/desktop/wm/keybindings/toggle-maximized"
+    key: "/org/gnome/desktop/wm/keybindings/switch-windows"
     value: "['<Alt>Tab']"
     state: present
 
