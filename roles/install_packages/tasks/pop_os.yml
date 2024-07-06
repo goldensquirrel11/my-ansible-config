@@ -3,6 +3,7 @@
     state: present
     name:
       - ark
+      - entr
       - gimp
       - gnome-shell-extension-manager
       - htop
