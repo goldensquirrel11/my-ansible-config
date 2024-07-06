@@ -22,3 +22,6 @@
       - tmux
       - virt-manager
       - xournalpp
+
+- name: Run nala fetch
+  ansible.builtin.command: sudo nala fetch --auto --fetches 16
