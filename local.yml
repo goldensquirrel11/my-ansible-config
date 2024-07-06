@@ -4,3 +4,4 @@
 
   roles:
     - install_packages
+    - set_configuration

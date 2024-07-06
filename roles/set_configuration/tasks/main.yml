@@ -1,0 +1,3 @@
+- name: Set custom Pop OS! configurations
+  import_tasks: pop_os.yml
+  when: "ansible_facts['distribution'] == 'Pop!_OS'"
