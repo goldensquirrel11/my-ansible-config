@@ -18,3 +18,62 @@
     value: "'file://{{ ansible_user_dir }}/.local/share/backgrounds/dark-mode-wallpaper.jpg'"
 
 
+#######################################
+#     Setting custom keybindings      #
+#######################################
+
+# Maximizing & minimizing windows
+
+- name: Set keybinding toggle maximized
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/toggle-maximized"
+    value: "['<Super>m']"
+    state: present
+
+
+# Switching windows
+
+- name: Set keybinding switch windows
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/toggle-maximized"
+    value: "['<Alt>Tab']"
+    state: present
+
+- name: Set keybinding switch windows backward
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-windows-backward"
+    value: "['<Shift><Alt>Tab']"
+    state: present
+
+
+# Switching workspaces
+
+- name: Set keybinding switch to workspace right
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-right"
+    value: "['<Primary><Super>Right']"
+    state: present
+
+- name: Set keybinding switch to workspace left
+  ansible.builtin.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/switch-to-workspace-left"
+    value: "['<Primary><Super>Left']"
+    state: present
+
+
+# Removing conflicting keybindings
+
+- name: Disable mutter tiling right
+  ansible.builtin.dconf:
+    key: "/org/gnome/mutter/keybindings/toggle-tiled-right"
+    value: "[]"
+    state: present
+
+- name: Disable mutter tiling left
+  ansible.builtin.dconf:
+    key: "/org/gnome/mutter/keybindings/toggle-tiled-left"
+    value: "[]"
+    state: present
+
+- name: Disable ibus emoji picker
+  ansible.builtin.command: gsettings set org.freedesktop.ibus.panel.emoji hotkey "[]"
