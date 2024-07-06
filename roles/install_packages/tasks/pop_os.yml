@@ -24,5 +24,11 @@
       - virt-manager
       - xournalpp
 
+- name: Check the number of nala sources
+  ansible.builtin.shell: cat /etc/apt/sources.list.d/nala-sources.list | grep -c "deb"
+  register: nala_sources
+
 - name: Run nala fetch
-  ansible.builtin.command: sudo nala fetch --auto --fetches 16
+  ansible.builtin.shell:
+    cmd: echo "y" | sudo nala fetch --auto --fetches 16
+  when: nala_sources.stdout | int < 16
