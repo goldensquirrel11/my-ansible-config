@@ -66,13 +66,13 @@
 - name: Disable mutter tiling right
   ansible.builtin.dconf:
     key: "/org/gnome/mutter/keybindings/toggle-tiled-right"
-    value: "[]"
+    value: "['<Primary><Super>l']"
     state: present
 
 - name: Disable mutter tiling left
   ansible.builtin.dconf:
     key: "/org/gnome/mutter/keybindings/toggle-tiled-left"
-    value: "[]"
+    value: "['<Primary><Super>h']"
     state: present
 
 - name: Disable ibus emoji picker
