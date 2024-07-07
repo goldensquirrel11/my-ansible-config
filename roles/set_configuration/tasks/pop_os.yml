@@ -96,3 +96,17 @@
   ansible.builtin.copy:
     src: "{{ xmousepasteblock_autostart_entry }}"
     dest: "{{ ansible_user_dir }}/.config/autostart/"
+
+
+##########################################
+#      Enable systemd boot messages      # 
+##########################################
+
+- name: Set kernelstub to show systemd boot messages
+  ansible.builtin.shell:
+    cmd: sudo kernelstub --delete-options "quiet systemd.show_status=false splash" && sudo kernelstub --add-options "systemd.show_status=true"
+  when:
+    ( ansible_proc_cmdline.quiet is defined and ansible_proc_cmdline.quiet == true ) or
+    ( ansible_proc_cmdline.splash is defined and ansible_proc_cmdline.splash == true ) or
+    ansible_proc_cmdline['systemd.show_status'] is not defined or
+    ansible_proc_cmdline['systemd.show_status'] == "false"
