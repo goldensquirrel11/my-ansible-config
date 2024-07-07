@@ -75,8 +75,13 @@
     value: "['<Primary><Super>h']"
     state: present
 
+- name: Get ibus emoji picker keybind
+  ansible.builtin.shell: gsettings get org.freedesktop.ibus.panel.emoji hotkey
+  register: emoji_picker_key
+
 - name: Disable ibus emoji picker
   ansible.builtin.command: gsettings set org.freedesktop.ibus.panel.emoji hotkey "[]"
+  when: emoji_picker_key.stdout != "@as []"
 
 
 ##########################################
