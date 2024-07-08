@@ -18,6 +18,7 @@
       - nvtop
       - okular
       - pip
+      - powertop
       - steam
       - timeshift
       - tmux
