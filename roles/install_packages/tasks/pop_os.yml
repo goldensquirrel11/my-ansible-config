@@ -25,6 +25,15 @@
       - virt-manager
       - xournalpp
 
+- name: Install flatpaks
+  community.general.flatpak:
+    method: user
+    state: present
+    name:
+      - dev.vencord.Vesktop
+      - org.moneymanagerex.MMEX
+      - org.prismlauncher.PrismLauncher
+
 - name: Check the number of nala sources
   ansible.builtin.shell: cat /etc/apt/sources.list.d/nala-sources.list | grep -c "deb"
   register: nala_sources
