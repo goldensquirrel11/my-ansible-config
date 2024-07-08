@@ -34,6 +34,12 @@
       - org.moneymanagerex.MMEX
       - org.prismlauncher.PrismLauncher
 
+- name: Install pip packages
+  ansible.builtin.pip:
+    state: latest
+    name:
+      - pyautogui
+
 - name: Check the number of nala sources
   ansible.builtin.shell: cat /etc/apt/sources.list.d/nala-sources.list | grep -c "deb"
   register: nala_sources
