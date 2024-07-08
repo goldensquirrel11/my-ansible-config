@@ -1,4 +1,4 @@
-- name: Install Pop OS! packages
+- name: Install apt packages
   ansible.builtin.package:
     state: present
     name:
