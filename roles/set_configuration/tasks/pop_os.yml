@@ -78,6 +78,7 @@
 - name: Get ibus emoji picker keybind
   ansible.builtin.shell: gsettings get org.freedesktop.ibus.panel.emoji hotkey
   register: emoji_picker_key
+  changed_when: false
 
 - name: Disable ibus emoji picker
   ansible.builtin.command: gsettings set org.freedesktop.ibus.panel.emoji hotkey "[]"

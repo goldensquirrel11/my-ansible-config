@@ -43,6 +43,7 @@
 - name: Check the number of nala sources
   ansible.builtin.shell: cat /etc/apt/sources.list.d/nala-sources.list | grep -c "deb"
   register: nala_sources
+  changed_when: false
 
 - name: Run nala fetch
   ansible.builtin.shell:
