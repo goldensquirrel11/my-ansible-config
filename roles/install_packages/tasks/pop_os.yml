@@ -26,14 +26,23 @@
       - virt-manager
       - xournalpp
 
-- name: Install flatpaks
+- name: Install Vesktop flatpak
   community.general.flatpak:
     method: user
     state: present
-    name:
-      - dev.vencord.Vesktop
-      - org.moneymanagerex.MMEX
-      - org.prismlauncher.PrismLauncher
+    name: dev.vencord.Vesktop
+
+- name: Install MMEX flatpak
+  community.general.flatpak:
+    method: user
+    state: present
+    name: org.moneymanagerex.MMEX
+
+- name: Install Prism Launcher flatpak
+  community.general.flatpak:
+    method: user
+    state: present
+    name: org.prismlauncher.PrismLauncher
 
 - name: Install pip packages
   ansible.builtin.pip:
