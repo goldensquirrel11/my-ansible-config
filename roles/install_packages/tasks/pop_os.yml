@@ -1,3 +1,9 @@
+- name: Add VSCode repo & keys to apt
+  ansible.builtin.script:
+    cmd: "{{ playbook_dir }}/vscode.sh"
+  args:
+    creates: /etc/apt/sources.list.d/vscode.list
+
 - name: Install apt packages
   become: true
   ansible.builtin.package:
