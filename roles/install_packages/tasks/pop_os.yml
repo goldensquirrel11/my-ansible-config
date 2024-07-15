@@ -1,3 +1,13 @@
+- name: Install dependencies
+  become: true
+  ansible.builtin.package:
+    state: present
+    name:
+      - apt-transport-https
+      - curl
+      - gpg
+      - wget
+
 - name: Add VSCode repo & keys to apt
   ansible.builtin.script:
     cmd: "{{ playbook_dir }}/vscode.sh"
