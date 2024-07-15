@@ -27,6 +27,12 @@
       - virt-manager
       - xournalpp
 
+- name: install Huion HS64 drivers
+  become: true
+  ansible.builtin.package:
+    deb:
+      "https://driverdl.huion.com/driver/Linux/HuionTablet_LinuxDriver_v15.0.0.162.x86_64.deb"
+
 - name: install GitKraken
   become: true
   ansible.builtin.package:
