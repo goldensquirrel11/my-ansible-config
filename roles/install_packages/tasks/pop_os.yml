@@ -26,6 +26,8 @@
     state: present
     name:
       - ark
+      - brave-browser
+      - code
       - entr
       - gimp
       - gnome-shell-extension-manager
