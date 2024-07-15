@@ -27,6 +27,12 @@
       - virt-manager
       - xournalpp
 
+- name: install GitKraken
+  become: true
+  ansible.builtin.package:
+    deb:
+      "https://release.gitkraken.com/linux/gitkraken-amd64.deb"
+
 - name: Install Vesktop flatpak
   community.general.flatpak:
     method: user
