@@ -26,11 +26,22 @@
     state: present
     name:
       - ark
+      - arp-scan
       - brave-browser
+      - btop
+      - build-essential
+      - cmake
       - code
+      - containerd.io
+      - dfu-util
+      - docker-ce
+      - docker-ce-cli
+      - docker-buildx-plugin
+      - docker-compose-plugin
       - entr
       - gimp
       - gnome-shell-extension-manager
+      - gparted
       - htop
       - inkscape
       - kdenlive
@@ -42,13 +53,16 @@
       - nmap
       - nodejs
       - nvtop
+      - obs-studio
       - okular
       - pip
       - powertop
+      - remmina
       - steam
       - timeshift
       - tmux
       - virt-manager
+      - vlc
       - xournalpp
 
 - name: install Huion HS64 drivers
