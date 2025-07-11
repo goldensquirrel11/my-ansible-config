@@ -20,6 +20,18 @@
   args:
     creates: /etc/apt/sources.list.d/brave-browser-release.list
 
+- name: Download ZeroTier install script
+  ansible.builtin.script:
+    cmd: "curl -s https://install.zerotier.com -o zerotier-install.sh"
+  args:
+    creates: "{{ playbook_dir }}/zerotier-install.sh"
+
+- name: Run ZeroTier install script
+  ansible.builtin.script:
+    cmd: "{{ playbook_dir }}/zerotier-install.sh"
+  args:
+    creates: ""
+
 - name: Install apt packages
   become: true
   ansible.builtin.package:
