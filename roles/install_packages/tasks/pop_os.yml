@@ -26,9 +26,21 @@
   args:
     creates: "{{ playbook_dir }}/zerotier-install.sh"
 
+- name: Download docker install script
+  ansible.builtin.script:
+    cmd: "curl -fsSL https://get.docker.com -o docker-install.sh"
+  args:
+    creates: "{{ playbook_dir }}/docker-install.sh"
+
 - name: Run ZeroTier install script
   ansible.builtin.script:
     cmd: "{{ playbook_dir }}/zerotier-install.sh"
+  args:
+    creates: ""
+
+- name: Run docker install script
+  ansible.builtin.script:
+    cmd: "{{ playbook_dir }}/docker-install.sh"
   args:
     creates: ""
 
