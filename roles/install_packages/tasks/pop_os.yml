@@ -15,22 +15,22 @@
     creates: /etc/apt/sources.list.d/vscode.list
 
 - name: Download ZeroTier install script
-  ansible.builtin.script:
-    cmd: "curl -s https://install.zerotier.com -o zerotier-install.sh"
-  args:
-    creates: "{{ playbook_dir }}/zerotier-install.sh"
+  ansible.builtin.get_url:
+    url: https://install.zerotier.com
+    dest: "{{ playbook_dir }}/zerotier-install.sh"
+    mode: '0764'
 
 - name: Download Brave Browser install script
-  ansible.builtin.script:
-    cmd: "curl -fsS https://dl.brave.com/install.sh -o brave-install.sh"
-  args:
-    creates: "{{ playbook_dir }}/brave-install.sh"
+  ansible.builtin.get_url:
+    url: https://dl.brave.com/install.sh
+    dest: "{{ playbook_dir }}/brave-install.sh"
+    mode: '0764'
 
 - name: Download docker install script
-  ansible.builtin.script:
-    cmd: "curl -fsSL https://get.docker.com -o docker-install.sh"
-  args:
-    creates: "{{ playbook_dir }}/docker-install.sh"
+  ansible.builtin.get_url:
+    url: https://get.docker.com
+    dest: "{{ playbook_dir }}/docker-install.sh"
+    mode: '0764'
 
 - name: Run ZeroTier install script
   ansible.builtin.script:
