@@ -31,21 +31,21 @@
   ansible.builtin.script:
     cmd: "{{ playbook_dir }}/zerotier-install.sh"
   args:
-    creates: ""
+    creates: "/usr/sbin/zerotier-cli"
 
 - name: Run docker install script
   become: true
   ansible.builtin.script:
     cmd: "{{ playbook_dir }}/docker-install.sh"
   args:
-    creates: ""
+    creates: "/usr/bin/docker"
 
 - name: Run Brave Browser install script
   become: true
   ansible.builtin.script:
     cmd: "{{ playbook_dir }}/brave-install.sh"
   args:
-    creates: ""
+    creates: "/usr/bin/brave-browser"
 
 - name: Install apt packages
   become: true
