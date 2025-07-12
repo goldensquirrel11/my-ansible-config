@@ -8,12 +8,6 @@
       - gpg
       - wget
 
-- name: Add VSCode repo & keys to apt
-  ansible.builtin.script:
-    cmd: "{{ playbook_dir }}/vscode.sh"
-  args:
-    creates: /etc/apt/sources.list.d/vscode.list
-
 - name: Download ZeroTier install script
   ansible.builtin.get_url:
     url: https://install.zerotier.com
@@ -106,6 +100,11 @@
   ansible.builtin.package:
     deb:
       "https://release.gitkraken.com/linux/gitkraken-amd64.deb"
+
+- name: Install VSCode
+  become: true
+  ansible.builtin.package:
+    deb: "https://vscode.download.prss.microsoft.com/dbazure/download/stable/cb0c47c0cfaad0757385834bd89d410c78a856c0/code_1.102.0-1752099874_amd64.deb"
 
 - name: Install Vesktop flatpak
   community.general.flatpak:
