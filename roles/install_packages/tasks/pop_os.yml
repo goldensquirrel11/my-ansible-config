@@ -26,6 +26,12 @@
   args:
     creates: "{{ playbook_dir }}/zerotier-install.sh"
 
+- name: Download Brave Browser install script
+  ansible.builtin.script:
+    cmd: "curl -fsS https://dl.brave.com/install.sh -o brave-install.sh"
+  args:
+    creates: "{{ playbook_dir }}/brave-install.sh"
+
 - name: Download docker install script
   ansible.builtin.script:
     cmd: "curl -fsSL https://get.docker.com -o docker-install.sh"
@@ -41,6 +47,12 @@
 - name: Run docker install script
   ansible.builtin.script:
     cmd: "{{ playbook_dir }}/docker-install.sh"
+  args:
+    creates: ""
+
+- name: Run Brave Browser install script
+  ansible.builtin.script:
+    cmd: "{{ playbook_dir }}/brave-install.sh"
   args:
     creates: ""
 
