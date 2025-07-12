@@ -14,12 +14,6 @@
   args:
     creates: /etc/apt/sources.list.d/vscode.list
 
-- name: Add Brave Browser repo & keys to apt
-  ansible.builtin.script:
-    cmd: "{{ playbook_dir }}/brave-browser.sh"
-  args:
-    creates: /etc/apt/sources.list.d/brave-browser-release.list
-
 - name: Download ZeroTier install script
   ansible.builtin.script:
     cmd: "curl -s https://install.zerotier.com -o zerotier-install.sh"
