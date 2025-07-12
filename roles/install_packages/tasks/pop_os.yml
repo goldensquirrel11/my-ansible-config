@@ -27,18 +27,21 @@
     mode: '0764'
 
 - name: Run ZeroTier install script
+  become: true
   ansible.builtin.script:
     cmd: "{{ playbook_dir }}/zerotier-install.sh"
   args:
     creates: ""
 
 - name: Run docker install script
+  become: true
   ansible.builtin.script:
     cmd: "{{ playbook_dir }}/docker-install.sh"
   args:
     creates: ""
 
 - name: Run Brave Browser install script
+  become: true
   ansible.builtin.script:
     cmd: "{{ playbook_dir }}/brave-install.sh"
   args:
