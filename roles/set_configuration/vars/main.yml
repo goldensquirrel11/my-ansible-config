@@ -1,2 +1,2 @@
-xmousepasteblock_executable: xmousepasteblock
-xmousepasteblock_autostart_entry: xmousepasteblock.desktop
+set_configuration_xmousepasteblock_executable: xmousepasteblock
+set_configuration_xmousepasteblock_autostart_entry: xmousepasteblock.desktop
