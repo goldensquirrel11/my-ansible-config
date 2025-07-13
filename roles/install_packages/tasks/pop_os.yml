@@ -95,18 +95,21 @@
 - name: Install Huion HS64 drivers
   become: true
   ansible.builtin.package:
+    state: present
     deb:
       "https://driverdl.huion.com/driver/Linux/HuionTablet_LinuxDriver_v15.0.0.162.x86_64.deb"
 
 - name: Install GitKraken
   become: true
   ansible.builtin.package:
+    state: present
     deb:
       "https://release.gitkraken.com/linux/gitkraken-amd64.deb"
 
 - name: Install VSCode
   become: true
   ansible.builtin.package:
+    state: present
     deb: "https://vscode.download.prss.microsoft.com/dbazure/download/stable/cb0c47c0cfaad0757385834bd89d410c78a856c0/code_1.102.0-1752099874_amd64.deb"
 
 - name: Install Vesktop flatpak
@@ -129,7 +132,7 @@
 
 - name: Install pip packages
   ansible.builtin.pip:
-    state: latest
+    state: present
     name:
       - pyautogui
 
