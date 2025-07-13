@@ -6,6 +6,7 @@
   ansible.builtin.copy:
     src: wallpapers/
     dest: "{{ ansible_user_dir }}/.local/share/backgrounds/"
+    mode: '0644'
 
 - name: Set light mode wallpaper
   community.general.dconf:
@@ -95,11 +96,13 @@
   ansible.builtin.copy:
     src: "{{ set_configuration_xmousepasteblock_executable }}"
     dest: "/usr/bin/"
+    mode: '0755'
 
 - name: Copy xmousepasteblock autostart entry
   ansible.builtin.copy:
     src: "{{ set_configuration_xmousepasteblock_autostart_entry }}"
     dest: "{{ ansible_user_dir }}/.config/autostart/"
+    mode: '0644'
 
 
 ##########################################
