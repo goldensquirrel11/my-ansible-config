@@ -26,6 +26,12 @@
     dest: "{{ playbook_dir }}/docker-install.sh"
     mode: '0764'
 
+- name: Download nvm install script
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh
+    dest: "{{ playbook_dir }}/nvm-install.sh"
+    mode: '0764'
+
 - name: Run ZeroTier install script
   become: true
   ansible.builtin.script:
@@ -46,6 +52,12 @@
     cmd: "{{ playbook_dir }}/brave-install.sh"
   args:
     creates: "/usr/bin/brave-browser"
+
+- name: Run nvm install script
+  ansible.builtin.script:
+    cmd: "{{ playbook_dir }}/nvm-install.sh"
+  args:
+    creates: "{{ ansible_facts['env']['HOME'] }}/.nvm"
 
 - name: Install apt packages
   become: true
