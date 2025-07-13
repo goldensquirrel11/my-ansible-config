@@ -164,3 +164,9 @@
   ansible.builtin.shell:
     cmd: echo "y" | sudo nala fetch --auto --fetches 16
   when: nala_sources.stdout | int < 16
+
+- name: Update all apt packages
+  become: true
+  ansible.builtin.apt:
+    name: "*"
+    state: latest
