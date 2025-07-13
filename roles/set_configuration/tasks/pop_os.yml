@@ -114,7 +114,10 @@
   ansible.builtin.shell:
     cmd: kernelstub --delete-options "quiet systemd.show_status=false splash" && kernelstub --add-options "systemd.show_status=true"
   when:
-    ( ansible_proc_cmdline.quiet is defined and ansible_proc_cmdline.quiet ) or
-    ( ansible_proc_cmdline.splash is defined and ansible_proc_cmdline.splash ) or
-    ansible_proc_cmdline['systemd.show_status'] is not defined or
-    not ansible_proc_cmdline['systemd.show_status'] == 'false'
+    ansible_facts['cmdline']['quiet'] is defined or
+    ansible_facts['cmdline']['splash'] is defined or
+    (ansible_facts['cmdline']['systemd.show_status'] == "false")
+  changed_when:
+    ansible_facts['cmdline']['quiet'] is defined or
+    ansible_facts['cmdline']['splash'] is defined or
+    (ansible_facts['cmdline']['systemd.show_status'] == "false")
