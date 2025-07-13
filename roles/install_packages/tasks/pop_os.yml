@@ -149,13 +149,15 @@
       - pyautogui
 
 - name: Check the number of nala sources
-  ansible.builtin.shell: cat /etc/apt/sources.list.d/nala-sources.list | grep -c "deb"
+  ansible.builtin.shell: |
+    set -o pipefail
+    cat /etc/apt/sources.list.d/nala-sources.list | grep -c "deb"
   register: nala_sources
-  pipe_fail: true
   changed_when: false # Never reports as changed
   args:
     # Only runs when the nala sources file exists
     removes: /etc/apt/sources.list.d/nala-sources.list
+    executable: /usr/bin/bash
 
 - name: Run nala fetch
   ansible.builtin.shell:
