@@ -114,6 +114,21 @@
 
 
 ##########################################
+#            Configure tmux              #
+##########################################
+
+- name: Copy tmux config file
+  ansible.builtin.copy:
+    src: "{{ set_configuration_tmux_config }}"
+    dest: "{{ ansible_user_dir }}"
+    mode: '0664'
+
+- name: Setup tmux plugin manager
+  ansible.builtin.git:
+    repo: "https://github.com/tmux-plugins/tpm"
+    dest: "{{ ansible_user_dir }}/.tmux/plugins/tpm"
+
+##########################################
 #      Enable systemd boot messages      #
 ##########################################
 
