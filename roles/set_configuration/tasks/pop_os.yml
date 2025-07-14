@@ -62,6 +62,14 @@
     state: present
 
 
+# Enable edge tiling
+
+- name: Disable edge tiling
+  community.general.dconf:
+    key: "/org/gnome/mutter/edge-tiling"
+    value: "false"
+    state: present
+
 # Removing conflicting keybindings
 
 - name: Disable mutter tiling right
