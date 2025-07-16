@@ -177,6 +177,40 @@
     dest: "{{ ansible_user_dir }}/.tmux/plugins/tpm"
 
 ##########################################
+#         Configure virt-manager         #
+##########################################
+
+- name: Enable virt-manager system tray icon
+  community.general.dconf:
+    key: "/org/virt-manager/virt-manager/confirm/unapplied-dev/system-tray"
+    value: "true"
+    state: present
+
+- name: Set virt-manager default firmware to UEFI
+  community.general.dconf:
+    key: "/org/virt-manager/virt-manager/new-vm/firmware"
+    value: "uefi"
+    state: present
+
+- name: Enable virt-manager memory polling
+  community.general.dconf:
+    key: "/org/virt-manager/virt-manager/stats/enable-memory-polling"
+    value: "true"
+    state: present
+
+- name: Enable virt-manager CPU usage summary
+  community.general.dconf:
+    key: "/org/virt-manager/virt-manager/vmlist-fields/host-cpu-usage"
+    value: "true"
+    state: present
+
+- name: Enable virt-manager memory usage summary
+  community.general.dconf:
+    key: "/org/virt-manager/virt-manager/vmlist-fields/memory-usage"
+    value: "true"
+    state: present
+
+##########################################
 #      Enable systemd boot messages      #
 ##########################################
 
