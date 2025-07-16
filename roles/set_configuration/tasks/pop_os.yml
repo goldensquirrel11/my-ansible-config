@@ -61,6 +61,18 @@
     value: "['<Primary><Super>Left']"
     state: present
 
+- name: Set home folder keybinding
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/home"
+    value: "['<Super>e']"
+    state: present
+
+- name: Set lockscreen keybinding
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/screensaver"
+    value: "['<Super>l']"
+    state: present
+
 
 # Enable edge tiling
 
@@ -88,6 +100,42 @@
   community.general.dconf:
     key: "/desktop/ibus/panel/emoji/hotkey"
     value: "['']"
+    state: present
+
+- name: Disable email client keybinding
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/email"
+    value: "['']"
+    state: present
+
+- name: Disable help menu keybinding
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/help"
+    value: "['']"
+    state: present
+
+- name: Disable idle screen dimming
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/power/idle-dim"
+    value: "false"
+    state: present
+
+- name: Set screenshot keybinding
+  community.general.dconf:
+    key: "/org/gnome/shell/keybindings/screenshot"
+    value: "['<Shift>Print', 'Print']"
+    state: present
+
+- name: Set screenshot UI keybinding
+  community.general.dconf:
+    key: "/org/gnome/shell/keybindings/show-screenshot-ui"
+    value: "['<Shift><Super>s']"
+    state: present
+
+- name: Set overview keybinding
+  community.general.dconf:
+    key: "/org/gnome/shell/keybindings/toggle-overview"
+    value: "['<Super>d', '<Super>Tab']"
     state: present
 
 
