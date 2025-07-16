@@ -119,11 +119,17 @@
     deb:
       "https://release.gitkraken.com/linux/gitkraken-amd64.deb"
 
+- name: Find an existing install of VSCode
+  ansible.builtin.command: which code
+  register: vscode_path
+  changed_when: false # Never reports as changed
+
 - name: Install VSCode
   become: true
   ansible.builtin.package:
     state: present
     deb: "https://vscode.download.prss.microsoft.com/dbazure/download/stable/cb0c47c0cfaad0757385834bd89d410c78a856c0/code_1.102.0-1752099874_amd64.deb"
+  when: vscode_path.stdout == ""
 
 - name: Install Vesktop flatpak
   community.general.flatpak:
