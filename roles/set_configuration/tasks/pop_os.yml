@@ -186,12 +186,6 @@
     value: "true"
     state: present
 
-- name: Set virt-manager default firmware to UEFI
-  community.general.dconf:
-    key: "/org/virt-manager/virt-manager/new-vm/firmware"
-    value: "uefi"
-    state: present
-
 - name: Enable virt-manager memory polling
   community.general.dconf:
     key: "/org/virt-manager/virt-manager/stats/enable-memory-polling"
