@@ -74,7 +74,7 @@
     state: present
 
 
-# Enable edge tiling
+# Disable edge tiling
 
 - name: Disable edge tiling
   community.general.dconf:
@@ -211,7 +211,7 @@
 - name: Set gnome system locale
   community.general.dconf:
     key: "/system/locale/region"
-    value: "ja_JP.UTF-8"
+    value: "true"
     state: present
 
 
