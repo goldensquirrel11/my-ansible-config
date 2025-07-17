@@ -176,3 +176,8 @@
   ansible.builtin.apt:
     name: "*"
     state: latest
+
+- name: Update all flatpaks
+  ansible.builtin.command: flatpak update --noninteractive
+  register: flatpak_update
+  changed_when: "'app/' in flatpak_update.stdout"
